@@ -8,12 +8,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    public class ProductController : Controller
+    [ApiController]
+    [Route("api/[controller]/[action]")]
+    public class ProductController : ControllerBase
     {
-        // GET: /<controller>/
-        public IActionResult Index()
+        [HttpGet]
+        public string GetProducts()
         {
-            return View(); 
+            return "this will be list of products";
+        }
+
+        [HttpGet]
+        public string GetProduct()
+        {
+            return "single product";
         }
     }
 }
